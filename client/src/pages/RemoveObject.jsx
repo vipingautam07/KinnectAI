@@ -114,7 +114,7 @@ const RemoveObject = () => {
           {content && (
                       <button
                         onClick={downloadImage}
-                        className="flex items-center gap-2 bg-[#00AD25] hover:bg-[#009922] text-white px-3 py-1.5 rounded-lg transition-colors"
+                        className="flex items-center gap-2 bg-[#8e37eb] hover:bg-[#417df6] text-white px-3 py-1.5 rounded-lg transition-colors"
                         title="Download Image"
                       >
                         <Download className="w-4 h-4" />
