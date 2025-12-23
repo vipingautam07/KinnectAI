@@ -19,7 +19,7 @@ app.use(express.json());
 
 // app.use(cors());
 
-// app.get('/', (req, res) => res.send('Welcome to the server!'));
+app.get('/', (req, res) => res.send('Welcome to the server!'));
 
 app.use(cors({
     origin: process.env.FRONTEND_URI,
