@@ -192,14 +192,19 @@ export const resumeReview = async (req, res) => {
         }
         
         if(resume.size > 5*1024*1024){
-            return res.json({success:false,message:'Resume file size exeeds allowed size (5MB)'})
+            return res.json({success:false,message:'Document file size exeeds allowed size (5MB)'})
         }
 
         const dataBuffer = fs.readFileSync(resume.path)
         const pdfData = await pdf(dataBuffer)
 
-        const prompt = `Review The following resume And provide Constructive feedback On its Strength Weakness And areas for Improvement.
-        Resume content: \n \n ${pdfData.text}`
+        const prompt = `Please review the following document and suggest improvements for:
+                            - clarity and readability
+                            - structure and flow
+                            - grammar and language
+                            - overall effectiveness
+                            Point out specific sections that can be improved and suggest revised wording where necessary.
+                        document content: \n \n ${pdfData.text}`
 
         // gemini api request
         const response = await openai.chat.completions.create({
